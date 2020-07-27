@@ -5,7 +5,7 @@ from .models import Product, Size, Images
 class ProductImagesInline(admin.TabularInline):
     model = Images
 
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin): # Able to add multiple images in single product section
     inlines = [ProductImagesInline]
 
 # Register your models here.
