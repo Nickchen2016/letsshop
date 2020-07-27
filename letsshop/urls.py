@@ -18,7 +18,6 @@ from django.urls import path, include
 from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-app_name = 'root'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
