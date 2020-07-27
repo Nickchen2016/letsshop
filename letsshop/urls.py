@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from products import views as product_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage, name='home'),
-    path('accounts/', include('accounts.urls'))
+    path('', product_views.product_list, name='home'),
+    path('accounts/', include('accounts.urls')),
+    path('products/', include('products.urls'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+    <h1>Porduct list</h1>
+    <div id='list_box'>
+        {% for product in products %}
+            <div class='product'>
+                <p>{{ product.title }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
