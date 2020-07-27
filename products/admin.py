@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Product, Size, Images
+from .models import Product, Size, Image
 
 
-class ProductImagesInline(admin.TabularInline):
-    model = Images
+class ProductImagesInline(admin.StackedInline):
+    model = Image
 
 class ProductAdmin(admin.ModelAdmin): # Able to add multiple images in single product section
     inlines = [ProductImagesInline]
@@ -11,4 +11,4 @@ class ProductAdmin(admin.ModelAdmin): # Able to add multiple images in single pr
 # Register your models here.
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Size)
-admin.site.register(Images)
+admin.site.register(Image)

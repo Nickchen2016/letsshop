@@ -35,7 +35,7 @@ class Product(models.Model):
         return self.title
 
 
-class Images(models.Model):
+class Image(models.Model):
     image = models.ImageField(default='default.png', blank=True)
     product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
 
