@@ -5,7 +5,17 @@
     <div id='list_box'>
         {% for product in products %}
             <div class='product'>
-                <p>{{ product.title }}</p>
+                {% for image in images %}
+                    {% if image.product_id == product.id and forloop.first %}
+                        <div class='thumb'>
+                            <img src='{{ image.image.url }}' width='100%'>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <p>
+                    {{ product.title }}
+                    <span class='price_tag'>${{ product.price }}</span>
+                </p>
             </div>
         {% endfor %}
     </div>
