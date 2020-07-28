@@ -10,7 +10,17 @@
     <title>letsshop</title>
 </head>
 <body>
-    <div id="app"></div>
+    <!-- <div id="app"></div> -->
+    <div id='site_header'>
+        <h1>
+            <a href="{% url 'home' %}">
+                Let's Shop!
+            </a>
+        </h1>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     {% block content %}
     {% endblock %}
 </body>

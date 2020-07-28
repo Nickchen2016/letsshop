@@ -2,8 +2,19 @@ body {
     font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color:darkgrey;
+}
+
 h1 {
     color:darkgrey
+}
+
+#site_header {
+    white-space: nowrap;
+    display: grid;
+    grid-template-columns: 2.2fr .2fr .2fr .2fr
 }
 
 #list_box {
