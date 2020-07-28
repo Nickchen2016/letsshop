@@ -51,7 +51,7 @@ h1 {
 .product_detail {
     width: 100%;
     display: grid;
-    grid-template-rows: .2fr .3fr 1.5fr 75px 75px 1.5fr;
+    grid-template-rows: .2fr .3fr 1.7fr 75px 75px 1.5fr;
     padding: 20px 40px;
     align-items: center;
     max-width: 320px;
@@ -83,6 +83,12 @@ h1 {
     padding: 10px;
     white-space: nowrap;
     cursor: pointer;
+}
+
+.size_box:focus {
+    outline:0;
+    box-shadow: none;
+    border: 1px solid black;
 }
 
 .size_box:hover, .btn_style:hover {

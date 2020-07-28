@@ -8,6 +8,7 @@
             {% endfor %}
         </div>
         <form class='product_detail'>
+            {% csrf_token %}
             <div style='color:darkgray'>
                 {{ product.category }}
                 <span class='price_tag'>${{ product.price }}</span>
@@ -16,7 +17,7 @@
             <div class='product_sizes'>
                 <div class='size_title'>Select size</div>
                 {% for sz in sizes %}
-                    <div class='size_box'>{{ sz.size }}</div>
+                    <button class='size_box' type='button' value='{{ sz.size }}'>{{ sz.size }}</button>
                 {% endfor %}
             </div>
             <div>
