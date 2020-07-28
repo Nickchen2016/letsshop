@@ -14,7 +14,19 @@ h1 {
 #site_header {
     white-space: nowrap;
     display: grid;
-    grid-template-columns: 2.2fr .2fr .2fr .2fr
+    grid-template-columns: 2fr .1fr .1fr;
+    margin-right: 20px;
+}
+
+.header_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header_btn:hover {
+    opacity: .5;
 }
 
 #list_box {
