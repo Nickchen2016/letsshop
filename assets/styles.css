@@ -33,4 +33,74 @@ h1 {
 
 .price_tag {
     float: right;
+    color: black;
+}
+
+.product_box {
+    display: flex;
+}
+
+.product_profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    max-width: 60%;
+}
+
+.product_detail {
+    width: 100%;
+    display: grid;
+    grid-template-rows: .2fr .3fr 1.5fr 75px 75px 1.5fr;
+    padding: 20px 40px;
+    align-items: center;
+    max-width: 320px;
+}
+
+.product_title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.size_title {
+    grid-column: 1/3;
+    text-align: left;
+}
+
+.product_sizes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    align-self: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.size_box {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.size_box:hover, .btn_style:hover {
+    opacity: .5;
+}
+
+.btn_style {
+    border: 1px solid darkgray;
+    border-radius: 50px;
+    padding: 20px 60px;
+    white-space: nowrap;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.product_des {
+    margin-top: 20px;
+    align-self: start;
+    line-height: 1.5;
 }
