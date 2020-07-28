@@ -17,12 +17,22 @@
                 Let's Shop!
             </a>
         </h1>
-        <div class='log_btn'>
+        <div class='log_btn' id='show_menu'>
             {% if user.is_authenticated %}
                     <p style='text-align:right;margin:0 5px;font-size:12px'>
                         <span style='color:gray'>Hello,</span><br>{{ request.user.get_short_name }}
                     </p>
                     <img src="{% static 'login.svg' %}">
+                    <div id='hover_menu'>
+                        <div></div>
+                        <div></div>
+                        <div>
+                            <form action="{% url 'accounts:logout' %}" method='post'>
+                                {% csrf_token %}
+                                <button type='submit'>Log Out</button>
+                            </form>
+                        </div>
+                    </div>
             {% else %}
                 <a href="{% url 'accounts:login' %}">
                     <img src="{% static 'login.svg' %}">
@@ -31,6 +41,7 @@
         </div>
         <div class='cart_btn'>
             <img src="{% static 'cart.svg' %}">
+            <div id='item_num'></div>
         </div>
     </div>
     {% block content %}
@@ -41,3 +52,19 @@
     </footer>
 </body>
 </html>
+
+
+<script defer>
+    document.getElementById('show_menu').addEventListener('mouseover', ()=>{
+        document.getElementById('hover_menu').style.display='grid';
+    })
+    document.getElementById('hover_menu').addEventListener('mouseover', ()=>{
+        document.getElementById('hover_menu').style.display='grid';
+    })
+    document.getElementById('show_menu').addEventListener('mouseleave', ()=>{
+        document.getElementById('hover_menu').style.display='none';
+    })
+    document.getElementById('hover_menu').addEventListener('mouseleave', ()=>{
+        document.getElementById('hover_menu').style.display='none';
+    })
+</script>

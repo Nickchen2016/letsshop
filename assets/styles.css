@@ -31,6 +31,16 @@ h1 {
     cursor: pointer;
 }
 
+#hover_menu {
+    position: absolute;
+    margin-top: 50px;
+    width: 200px;
+    display: none;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    border: 1px solid black;
+}
+
 .cart_btn {
     display: flex;
     justify-content: center;
@@ -38,7 +48,17 @@ h1 {
     cursor: pointer;
 }
 
-.cart_btn:hover, .log_btn:hover, a:hover, .size_box:hover, .btn_style:hover {
+#item_num {
+    position: absolute;
+    margin: -7px 0 0 16px;
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    border: 1px solid white;
+    background-color: red;
+}
+
+.cart_btn img:hover, .log_btn img:hover, a:hover, .size_box:hover, .btn_style:hover {
     opacity: .5;
 }
 
