@@ -17,15 +17,25 @@
                 Let's Shop!
             </a>
         </h1>
-        <div class='header_btn'>
-            <img src="{% static 'login.svg' %}">
+        <div class='log_btn'>
+            {% if user.is_authenticated %}
+                    <p style='text-align:right;margin:0 5px;font-size:12px'>
+                        <span style='color:gray'>Hello,</span><br>{{ request.user.get_short_name }}
+                    </p>
+                    <img src="{% static 'login.svg' %}">
+            {% else %}
+                <a href="{% url 'accounts:login' %}">
+                    <img src="{% static 'login.svg' %}">
+                </a>
+            {% endif %}
         </div>
-        <div class='header_btn'>
+        <div class='cart_btn'>
             <img src="{% static 'cart.svg' %}">
         </div>
     </div>
     {% block content %}
     {% endblock %}
+
     <footer>
         <p>Let's Shop! @nickdocode 2020</p>
     </footer>
