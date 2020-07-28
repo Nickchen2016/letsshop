@@ -1,5 +1,31 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-    
+    <div class='product_box'>
+        <div class='product_profile'>
+            {% for image in images %}
+                <img src='{{ image.image.url }}' width='100%'>
+            {% endfor %}
+        </div>
+        <form class='product_detail'>
+            <div style='color:darkgray'>
+                {{ product.category }}
+                <span class='price_tag'>${{ product.price }}</span>
+            </div>
+            <div class='product_title'>{{ product.title }}</div>
+            <div class='product_sizes'>
+                <div class='size_title'>Select size</div>
+                {% for sz in sizes %}
+                    <div class='size_box'>{{ sz.size }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                <button class='btn_style' style='background-color:black;color:white'>Add to Cart</button>
+            </div>
+            <div>
+                <button class='btn_style'>Favorite</button>
+            </div>
+            <div class='product_des'>{{ product.description }}</div>
+        </form>
+    </div>
 {% endblock %}

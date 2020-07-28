@@ -9,22 +9,11 @@ class Size(models.Model):
 
 
 class Product(models.Model):
-    # SHOE_SIZES = (
-    #     ('M 7 / W 8.5','M 7 / W 8.5'),
-    #     ('M 7.5 / W 9','M 7.5 / W 9'),
-    #     ('M 8 / W 9.5','M 8 / W 9.5'),
-    #     ('M 8.5 / W 10','M 8.5 / W 10'),
-    #     ('M 9 / W 10.5','M 9 / W 10.5'),
-    #     ('M 9.5 / W 11','M 9.5 / W 11'),
-    #     ('M 10 / W 11.5','M 10 / W 11.5'),
-    #     ('M 10.5 / W 12','M 10.5 / W 12'),
-    #     ('M 11 / W 12.5','M 11 / W 12.5'),
-    #     ('M 11.5 / W 13','M 11.5 / W 13'),
-    #     ('M 12 / W 13.5','M 12 / W 13.5')
-    # )
+
     title = models.CharField(max_length=100)
+    category = models.CharField(max_length=30)
     description = models.TextField()
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=20, unique=True, blank=True)
     price = models.IntegerField()
     discount = models.IntegerField()
     # stock = models.PositiveIntegerField(default=None)

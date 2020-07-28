@@ -4,19 +4,21 @@
     <h1>Porduct list</h1>
     <div id='list_box'>
         {% for product in products %}
-            <div class='product'>
-                {% for image in images %}
-                    {% if image.product_id == product.id and forloop.first %}
-                        <div class='thumb'>
-                            <img src='{{ image.image.url }}' width='100%'>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-                <p>
-                    {{ product.title }}
-                    <span class='price_tag'>${{ product.price }}</span>
-                </p>
-            </div>
+        <div class='product'>
+            {% for image in images %}
+                {% if image.product_id == product.id and forloop.first %}
+                        <a href="{% url 'products:detail' slug=product.slug %}">
+                            <div class='thumb'>
+                                <img src='{{ image.image.url }}' width='100%'>
+                            </div>
+                        </a>
+                {% endif %}
+            {% endfor %}
+            <p>
+                {{ product.title }}
+                <span class='price_tag'>${{ product.price }}</span>
+            </p>
+        </div>
         {% endfor %}
     </div>
 {% endblock %}
