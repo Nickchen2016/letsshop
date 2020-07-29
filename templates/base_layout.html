@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <script src="{% static 'bundle.js' %}" type="text/javascript" defer></script>
     <title>letsshop</title>
 </head>
 <body>
@@ -45,10 +44,8 @@
             <div id='item_num'></div>
         </div>
     </div>
-    <div id='cart'>
         {% block content %}
         {% endblock %}
-    </div>
 
     <footer>
         <p>Let's Shop! @nickdocode 2020</p>
@@ -56,6 +53,7 @@
 </body>
 </html>
 
+<script src="{% static 'bundle.js' %}" type="text/javascript"></script>
 
 <script type='text/javascript' defer>
     document.getElementById('show_menu').addEventListener('mouseover', ()=>{
@@ -69,5 +67,15 @@
     })
     document.getElementById('hover_menu').addEventListener('mouseleave', ()=>{
         document.getElementById('hover_menu').style.display='none';
+    })
+
+
+    document.querySelectorAll('.size_radio').forEach(e=>{
+            e.addEventListener('click',()=>{
+                if(e.checked){
+                    e.parentNode.style.border = '1px solid black';
+                    console.log(e, e.checked)
+                }
+            })
     })
 </script>
