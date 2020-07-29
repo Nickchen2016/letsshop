@@ -1,5 +1,6 @@
 {% extends 'base_layout.html' %}
 
+
 {% block content %}
     <div class='product_box'>
         <div class='product_profile'>
@@ -7,7 +8,7 @@
                 <img src='{{ image.image.url }}' width='100%'>
             {% endfor %}
         </div>
-        <form class='product_detail'>
+        <form class='product_detail' id='cart_info'>
             {% csrf_token %}
             <div style='color:darkgray'>
                 {{ product.category }}
@@ -17,11 +18,11 @@
             <div class='product_sizes'>
                 <div class='size_title'>Select size</div>
                 {% for sz in sizes %}
-                    <button class='size_box' type='button' value='{{ sz.size }}'>{{ sz.size }}</button>
+                    <input class='size_box' v-model='form.size' type='button' value='{{ sz.size }}'></input>
                 {% endfor %}
             </div>
             <div>
-                <button class='btn_style' style='background-color:black;color:white'>Add to Cart</button>
+                <input type='submit' class='btn_style' value='Add to Cart' style='background-color:black;color:white'></input>
             </div>
             <div style='margin-top:10px'>
                 <button class='btn_style'>Favorite</button>
