@@ -40,7 +40,9 @@
             {% endif %}
         </div>
         <div class='cart_btn'>
-            <img src="{% static 'cart.svg' %}">
+            <a href="{% url 'orders:cart' %}">
+                <img src="{% static 'cart.svg' %}">
+            </a>
             <div id='item_num'></div>
         </div>
     </div>

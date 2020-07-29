@@ -6,7 +6,7 @@
         {% for product in products %}
         <div class='product'>
             {% for image in images %}
-                {% if image.product_id == product.id and forloop.first %}
+                {% if image.product_id == product.id and forloop.counter0|divisibleby:3 %}
                         <a href="{% url 'products:detail' slug=product.slug %}">
                             <div class='thumb'>
                                 <img src='{{ image.image.url }}' width='100%'>

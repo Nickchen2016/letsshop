@@ -8,3 +8,6 @@ def order_hist(req):
     order = Order.objects.all().filter(user_id=req.user.id)
     orderproduct = OrderProduct.objects.all().filter(order__user_id=req.user.id)
     return render(req, 'orders/cart_hist.html')
+
+def order_cart(req):
+    return render(req, 'orders/order_cart.html')
