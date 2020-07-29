@@ -2,14 +2,13 @@
 
 
 {% block content %}
-    <div class='product_box'>
+    <form class='product_box'>
         <div class='product_profile'>
             {% for image in images %}
                 <img src='{{ image.image.url }}' width='100%'>
             {% endfor %}
         </div>
-        <form class='product_detail' id='cart_info'>
-            {% csrf_token %}
+        <div class='product_detail' id='cart_info'>
             <div style='color:darkgray'>
                 {{ product.category }}
                 <span class='price_tag'>${{ product.price }}</span>
@@ -18,7 +17,10 @@
             <div class='product_sizes'>
                 <div class='size_title'>Select size</div>
                 {% for sz in sizes %}
-                    <input class='size_box' v-model='form.size' type='button' value='{{ sz.size }}'></input>
+                <div class='size_box'>
+                    <input type="radio" v-model="form.size" class='size_radio' id='{{ sz.size }}' value='{{ sz.size }}' style='display:none'>
+                    <label for='{{ sz.size }}'>{{ sz.size }}</label>
+                </div>
                 {% endfor %}
             </div>
             <div>
@@ -28,6 +30,6 @@
                 <button class='btn_style'>Favorite</button>
             </div>
             <div class='product_des'>{{ product.description }}</div>
-        </form>
-    </div>
+        </div>
+    </form>
 {% endblock %}
