@@ -12,7 +12,7 @@ class Order(models.Model):
 
 class OrderProduct(models.Model):      
     order = models.ForeignKey(Order, on_delete=models.CASCADE, default=None)
-    product = models.CharField(max_length=100)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, default=None)
     size = models.CharField(max_length=16)
     quantity = models.IntegerField()
     subtotal = models.IntegerField()
