@@ -14,9 +14,16 @@ document.getElementById('hover_menu').addEventListener('mouseleave', ()=>{
 
 document.querySelectorAll('.size_radio').forEach(e=>{
         e.addEventListener('click',()=>{
+            helper();
             if(e.checked){
                 e.parentNode.style.border = '1px solid black';
-                console.log(e, e.checked)
             }
         })
 })
+
+
+function helper(){
+    document.querySelectorAll('.size_radio').forEach(e=>{
+        e.parentNode.style.border = '1px solid lightgray';
+    })
+}
