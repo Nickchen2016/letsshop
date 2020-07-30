@@ -16,10 +16,10 @@ let cartinfo = new Vue({
             updateCookie(){
                 let cookiesKey = [];
                 let cookiesArr = document.cookie.split('; ');
+                for(let i=0;i<cookiesArr.length;i++){
+                    cookiesKey.push(cookiesArr[i].split('=')[0]);
+                }
                 console.log(cookiesArr);
-                // for(let i=0;i<cookiesArr.length;i++){
-                //     cookiesKey.push(cookiesArr[i].split('=')[0]);
-                // }
                 // if(!cookiesKey.includes('open_sub_popup')){
                 //     document.cookie = 'open_sub_popup=open_only_first_load';
                 //     setTimeout(function(){
