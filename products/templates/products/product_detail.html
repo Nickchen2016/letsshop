@@ -1,8 +1,8 @@
 {% extends 'base_layout.html' %}
-
+{% load static %}
 
 {% block content %}
-    <form class='product_box'>
+    <div class='product_box'>
         <div class='product_profile'>
             {% for image in images %}
                 <img src='{{ image.image.url }}' width='100%'>
@@ -14,6 +14,7 @@
                 <span class='price_tag'>${{ product.price }}</span>
             </div>
             <div class='product_title'>{{ product.title }}</div>
+            <input type='button' id='product_id' value='{{ product.id }}' style='visibility: hidden;'></input>
             <div class='product_sizes'>
                 <div class='size_title'>Select size</div>
                 {% for sz in sizes %}
@@ -24,12 +25,23 @@
                 {% endfor %}
             </div>
             <div>
-                <input type='submit' class='btn_style' value='Add to Cart' style='background-color:black;color:white'></input>
+                <input 
+                    type='button' 
+                    class='btn_style' 
+                    value='Add to Cart' 
+                    @Click='updateCookie'
+                    style='background-color:black;color:white'>
+                </input>
             </div>
             <div style='margin-top:10px'>
                 <button class='btn_style'>Favorite</button>
             </div>
             <div class='product_des'>{{ product.description }}</div>
         </div>
-    </form>
+    </div>
+{% endblock %}
+
+{% block site_scripts %}
+<script src="{% static 'bundle.js' %}" type="text/javascript" defer></script>
+<script type='text/javascript' src="{% static 'general.js' %}" defer></script>
 {% endblock %}

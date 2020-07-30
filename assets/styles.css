@@ -111,7 +111,7 @@ h1 {
 .product_detail {
     width: 100%;
     display: grid;
-    grid-template-rows: .1fr .2fr 1fr auto auto 1.5fr;
+    grid-template-rows: .1fr .2fr .1fr 1fr auto auto 1.5fr;
     padding: 10px 50px;
     align-items: center;
     max-width: 320px;
