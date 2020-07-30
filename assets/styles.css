@@ -90,6 +90,7 @@ h1 {
 .price_tag {
     float: right;
     color: black;
+    white-space: nowrap;
 }
 
 .product_box {

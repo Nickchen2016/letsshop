@@ -7,6 +7,7 @@ let cartinfo = new Vue({
                 form: {
                     product_id: document.getElementById('product_id').value,
                     quantity: '1',
+                    price: document.getElementById('price_tag').innerHTML,
                     size: ''
                 }
             }

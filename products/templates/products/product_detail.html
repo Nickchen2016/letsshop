@@ -11,7 +11,9 @@
         <div class='product_detail' id='cart_info'>
             <div style='color:darkgray'>
                 {{ product.category }}
-                <span class='price_tag'>${{ product.price }}</span>
+                <div class='price_tag'>
+                    $<span id='price_tag'>{{ product.price }}</span>
+                </div>
             </div>
             <div class='product_title'>{{ product.title }}</div>
             <input type='button' id='product_id' value='{{ product.id }}' style='visibility: hidden;'></input>
