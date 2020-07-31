@@ -15,9 +15,14 @@ let cartinfo = new Vue({
         },
         methods: {
             updateCookie(){
-                axios.get('/products')
+                axios.get('/api/products')
                 .then(res=>{
                     console.log('data!', res.data)
+                    res.data.foreach(e=>{
+                        if(e.id==this.form.product_id){
+                            
+                        }
+                    })
                 }).catch(error=>{
                     console.log(error)
                 })
