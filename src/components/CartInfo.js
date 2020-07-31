@@ -15,29 +15,32 @@ let cartinfo = new Vue({
         },
         methods: {
             updateCookie(){
-                axios.get('/api/products')
-                .then(res=>{
-                    console.log('data!', res.data)
-                    res.data.foreach(e=>{
-                        if(e.id==this.form.product_id){
-                            
-                        }
-                    })
-                }).catch(error=>{
-                    console.log(error)
-                })
-                // let cookiesKey = [];
-                // let cookiesArr = document.cookie.split('; ');
-                // for(let i=0;i<cookiesArr.length;i++){
-                //     cookiesKey.push(cookiesArr[i].split('=')[0]);
-                // }
-                // console.log(cookiesArr);
-                // if(!cookiesKey.includes('open_sub_popup')){
-                    // }
-                            // document.cookie = 'Lets_shop_'+this.form.product_id+'='+JSON.stringify(this.form)+';path=/'
-                            // setTimeout(function(){
-                            // alert("Your Cookie : " + document.cookie);
-                            // },3000)
+                document.cookie = 'Lets_shop_'+this.form.product_id+'='+JSON.stringify(this.form)+';path=/'
+                this.checkitems();
+                // axios.get('/api/products')
+                // .then(res=>{
+                //     console.log('data!', res.data)
+                //     res.data.foreach(e=>{
+                //         if(e.id==this.form.product_id){
+
+                //         }
+                //     })
+                // }).catch(error=>{
+                //     console.log(error)
+                // })
+            },
+            checkitems(){
+                let itemNum = 0;
+                let cookiesArr = document.cookie.split('; ');
+                for(let i=0;i<cookiesArr.length;i++){
+                    if(cookiesArr[i].split('=')[0].includes('Lets_shop')){
+                        itemNum+=Number(JSON.parse(cookiesArr[i].split('=')[1]).quantity)
+                    }
+                }
+                document.getElementById('item_num').innerHTML = itemNum
             }
         },
+        beforeMount(){
+            this.checkitems();
+        }
     });

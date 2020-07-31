@@ -15,3 +15,13 @@ if(drop_menu){
         hover_menu.style.display='none';
     })
 }
+
+// function to count the cart items on page load.
+let itemNum = 0;
+let cookiesArr = document.cookie.split('; ');
+for(let i=0;i<cookiesArr.length;i++){
+    if(cookiesArr[i].split('=')[0].includes('Lets_shop')){
+        itemNum+=Number(JSON.parse(cookiesArr[i].split('=')[1]).quantity)
+    }
+}
+document.getElementById('item_num').innerHTML = itemNum
