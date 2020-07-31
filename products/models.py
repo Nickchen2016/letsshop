@@ -16,6 +16,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=20, unique=True, blank=True)
     price = models.IntegerField()
     discount = models.IntegerField()
+    primaryImage= models.ImageField(default='default.png', blank=True)
     # stock = models.PositiveIntegerField(default=None)
     avaliable = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)

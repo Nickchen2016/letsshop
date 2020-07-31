@@ -5,15 +5,11 @@
     <div id='list_box'>
         {% for product in products %}
         <div class='product'>
-            {% for image in images %}
-                {% if image.product_id == product.id and forloop.counter0|divisibleby:3 %}
-                        <a href="{% url 'products:detail' slug=product.slug %}">
-                            <div class='thumb'>
-                                <img src='{{ image.image.url }}' width='100%'>
-                            </div>
-                        </a>
-                {% endif %}
-            {% endfor %}
+                <a href="{% url 'products:detail' slug=product.slug %}">
+                    <div class='thumb'>
+                        <img src='{{ product.primaryImage.url }}' width='100%'>
+                    </div>
+                </a>
             <p>
                 {{ product.title }}
                 <span class='price_tag'>${{ product.price }}</span>

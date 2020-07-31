@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'orders',
+    'rest_framework',
     'django_cleanup' # Used to cleanup the cache
 ]
 
