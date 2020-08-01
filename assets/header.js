@@ -24,4 +24,9 @@ for(let i=0;i<cookiesArr.length;i++){
         itemNum+=Number(JSON.parse(cookiesArr[i].split('=')[1]).quantity)
     }
 }
-document.getElementById('item_num').innerHTML = itemNum
+if(itemNum>0){
+    document.getElementById('item_num').style.display = 'flex';
+    document.getElementById('item_num').innerHTML = itemNum
+}else{
+    document.getElementById('item_num').style.display = 'none';
+}

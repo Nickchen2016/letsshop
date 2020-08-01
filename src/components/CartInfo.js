@@ -37,10 +37,15 @@ let cartinfo = new Vue({
                         itemNum+=Number(JSON.parse(cookiesArr[i].split('=')[1]).quantity)
                     }
                 }
-                document.getElementById('item_num').innerHTML = itemNum
+                if(itemNum>0){
+                    document.getElementById('item_num').style.display = 'flex';
+                    document.getElementById('item_num').innerHTML = itemNum
+                }else{
+                    document.getElementById('item_num').style.display = 'none';
+                }
             }
         },
-        beforeMount(){
-            this.checkitems();
-        }
+        // beforeMount(){
+        //     this.checkitems();
+        // }
     });

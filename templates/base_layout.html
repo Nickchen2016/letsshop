@@ -9,41 +9,8 @@
     <title>letsshop</title>
 </head>
 <body>
-    <div id='site_header'>
-        <h1>
-            <a href="{% url 'home' %}">
-                Let's Shop!
-            </a>
-        </h1>
-        <div class='log_btn' id='show_menu'>
-            {% if user.is_authenticated %}
-                    <p style='text-align:right;margin:0 5px;font-size:12px'>
-                        <span style='color:gray'>Hello,</span><br>{{ request.user.get_short_name }}
-                    </p>
-                    <img id='drop_menu' src="{% static 'login.svg' %}">
-                    <div id='hover_menu'>
-                        <div></div>
-                        <div></div>
-                        <div>
-                            <form action="{% url 'accounts:logout' %}" method='post'>
-                                {% csrf_token %}
-                                <button type='submit'>Log Out</button>
-                            </form>
-                        </div>
-                    </div>
-            {% else %}
-                <a href="{% url 'accounts:login' %}">
-                    <img src="{% static 'login.svg' %}">
-                </a>
-            {% endif %}
-        </div>
-        <div class='cart_btn'>
-            <a href="{% url 'orders:cart' %}">
-                <img src="{% static 'cart.svg' %}">
-            </a>
-            <div id='item_num'></div>
-        </div>
-    </div>
+        {% include './header.html' %}
+        <!-- break line between header and main body -->
         {% block content %}
         {% endblock %}
 
@@ -55,5 +22,3 @@
 
 {% block site_scripts %}
 {% endblock %}
-
-<script type='text/javascript' src="{% static 'header.js' %}" defer></script>
