@@ -1,6 +1,7 @@
-const { default: Axios } = require("axios");
+import Vue from 'vue';
+import axios from 'axios';
 
-let cartinfo = new Vue({
+let product_detail = new Vue({
         el: '#cart_info',
         delimiters: ['[[', ']]'],
         data(){
@@ -50,3 +51,5 @@ let cartinfo = new Vue({
         //     this.checkitems();
         // }
     });
+
+    export default product_detail;

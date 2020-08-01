@@ -1,15 +1,11 @@
 {% extends 'base_layout.html' %}
+{% load static %}
 
 {% block content %}
-    <div id='cart_box'>
-        <div>my cart</div>
-        <div>
-
-        </div>
-    </div>
+    <div id='cart_box'></div>
 {% endblock %}
 
 
 {% block site_scripts %}
-    <script type='text/javascript' src="{% static 'cart.js' %}" defer></script>
+<script src="{% static 'bundles/cart_list.js' %}" type="text/javascript" defer></script>
 {% endblock %}

@@ -3,10 +3,13 @@ const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-    entry: './src/main.js',
+    entry: {
+      'product_detail': __dirname+'/src/Product_detail.js',
+      'cart_list': __dirname+'/src/Cart_list.js'
+    },
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'assets')
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'assets/bundles')
     },
     module: {
         rules: [

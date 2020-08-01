@@ -16,7 +16,6 @@ if(drop_menu){
     })
 }
 
-// function to count the cart items on page load.
 let itemNum = 0;
 let cookiesArr = document.cookie.split('; ');
 for(let i=0;i<cookiesArr.length;i++){
