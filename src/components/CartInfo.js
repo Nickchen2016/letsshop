@@ -9,7 +9,8 @@ let cartinfo = new Vue({
                     product_id: document.getElementById('product_id').value,
                     quantity: '1',
                     price: document.getElementById('price_tag').innerHTML,
-                    size: ''
+                    size: '',
+                    primary_image: document.getElementById('primary_image').innerHTML
                 }
             }
         },

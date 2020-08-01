@@ -3,11 +3,13 @@
 {% block content %}
     <div id='cart_box'>
         <div>my cart</div>
-        <div></div>
+        <div>
+
+        </div>
     </div>
 {% endblock %}
 
 
-<script defer>
-    
-</script>
+{% block site_scripts %}
+    <script type='text/javascript' src="{% static 'cart.js' %}" defer></script>
+{% endblock %}
