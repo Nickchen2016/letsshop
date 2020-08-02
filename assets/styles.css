@@ -214,12 +214,15 @@ footer {
 
 #notification_tab {
     position: absolute;
-    display: none;
     float: right;
     right: 2%;
     margin-top: -2%;
     width: 250px;
-    height: 300px;
+    min-height: 20px;
     border-radius: 5px;
-    background-color: grey;
+    border: 1px solid black;
+    background-color: white;
+    padding: 2%;
+    transform: translateX(120%);
+    transition: transform 1000ms ease 0s;
 }

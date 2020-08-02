@@ -21,10 +21,11 @@ let product_detail = new Vue({
                 document.cookie = 'Lets_shop_'+this.form.product_id+'='+JSON.stringify(this.form)+';path=/'
                 this.checkitems();
 
-                document.getElementById('notification_tab').style.display='flex';
+                document.getElementById('notification_tab').style.transform = 'translateX(0)'; // In order to achieve slide animation, we have to keep a consistent value of the dislpay
+                document.getElementById('notification_tab').innerHTML = 'You just added 1 '+ this.form.title + ' into your cart';
                 setTimeout(() => {
-                    document.getElementById('notification_tab').style.display='none';
-                }, 4000);
+                    document.getElementById('notification_tab').style.transform = 'translateX(120%)';
+                }, 8000);
 
                 // axios.get('/api/products')
                 // .then(res=>{
