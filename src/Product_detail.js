@@ -8,6 +8,7 @@ let product_detail = new Vue({
             return {
                 form: {
                     product_id: document.getElementById('product_id').value,
+                    title: document.getElementById('product_title').innerHTML,
                     quantity: '1',
                     price: document.getElementById('price_tag').innerHTML,
                     size: '',
@@ -46,10 +47,7 @@ let product_detail = new Vue({
                     document.getElementById('item_num').style.display = 'none';
                 }
             }
-        },
-        // beforeMount(){
-        //     this.checkitems();
-        // }
+        }
     });
 
     export default product_detail;
