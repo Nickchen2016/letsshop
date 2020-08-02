@@ -25,7 +25,7 @@ let product_detail = new Vue({
                 document.getElementById('notification_tab').innerHTML = 'You just added 1 '+ this.form.title + ' into your cart';
                 setTimeout(() => {
                     document.getElementById('notification_tab').style.transform = 'translateX(120%)';
-                }, 8000);
+                }, 7000);
 
                 // axios.get('/api/products')
                 // .then(res=>{
