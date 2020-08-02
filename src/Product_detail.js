@@ -20,6 +20,12 @@ let product_detail = new Vue({
             updateCookie(){
                 document.cookie = 'Lets_shop_'+this.form.product_id+'='+JSON.stringify(this.form)+';path=/'
                 this.checkitems();
+
+                document.getElementById('notification_tab').style.display='flex';
+                setTimeout(() => {
+                    document.getElementById('notification_tab').style.display='none';
+                }, 4000);
+
                 // axios.get('/api/products')
                 // .then(res=>{
                 //     console.log('data!', res.data)
@@ -42,7 +48,7 @@ let product_detail = new Vue({
                 }
                 if(itemNum>0){
                     document.getElementById('item_num').style.display = 'flex';
-                    document.getElementById('item_num').innerHTML = itemNum
+                    document.getElementById('item_num').innerHTML = itemNum;
                 }else{
                     document.getElementById('item_num').style.display = 'none';
                 }
