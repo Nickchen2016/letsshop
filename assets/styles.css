@@ -33,7 +33,7 @@ h1 {
 
 #hover_menu {
     position: absolute;
-    margin-top: 50px;
+    margin-top: 40px;
     width: 200px;
     display: none;
     grid-template-rows: 1fr 1fr 1fr;

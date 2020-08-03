@@ -11,7 +11,7 @@
                     <p style='text-align:right;margin:0 5px;font-size:12px'>
                         <span style='color:gray'>Hello,</span><br>{{ request.user.get_short_name }}
                     </p>
-                    <img id='drop_menu' src="{% static 'login.svg' %}">
+                    <img id='drop_menu' src="{% static 'login.svg' %}" data='{{ request.user.id }}'>
                     <div id='hover_menu'>
                         <div></div>
                         <div></div>
@@ -24,7 +24,7 @@
                     </div>
             {% else %}
                 <a href="{% url 'accounts:login' %}">
-                    <img src="{% static 'login.svg' %}">
+                    <img id='drop_menu' src="{% static 'login.svg' %}" data=''>
                 </a>
             {% endif %}
         </div>
