@@ -1,5 +1,8 @@
 <template>
-    <div class='item_list_box'>
+    <div class='item_list_box' v-if='isComplete'>
+        Thanks for your order!
+    </div>
+    <div class='item_list_box' v-else>
         <div class='item_info'>
             <span>Product List</span>
             <span>Title</span>
@@ -16,7 +19,7 @@
                 <div>{{ item.size }}</div>
                 <div>${{ item.price * item.quantity }}</div>
             </div>
-            <button v-if='customer.length>0' v-on:click.prevent='payment()'>Process to Payment</button>
+            <button v-if='customer.length>0' v-on:click='payment()'>Process to Payment</button>
             <button v-else v-on:click='redirect()'>Login First</button>
     </div>
 </template>
@@ -31,7 +34,8 @@ import axios from 'axios';
             return {
                 arr: [],
                 customer: document.getElementById('drop_menu').getAttribute('data'),
-                csrftoken: ''
+                csrftoken: '',
+                isComplete: false
             }
         },
         methods: {
@@ -68,6 +72,14 @@ import axios from 'axios';
                     document.getElementById('item_num').style.display = 'none';
                 }
             },
+            cleanCookie(){
+                for(let i=0;i<this.arr.length;i++){
+                    if(this.isComplete){
+                        document.cookie = 'Lets_shop_'+this.arr[i].product_id+'='+JSON.stringify(this.arr[i])+';Max-Age=0; path=/';
+                    }
+                    this.itemCounter();
+                }
+            },
             redirect(){
                 window.location.href="http://127.0.0.1:8000/accounts/login/"
             },
@@ -76,7 +88,6 @@ import axios from 'axios';
                 let header = {headers: {"Content-type": "application/json",'X-CSRFToken': this.csrftoken}}
                 axios.post('/api/orders/',query, header)
                 .then(res=>{
-                    console.log('data!', res.data.id)
                     this.saveProduct(header,res.data.id);
                 }).catch(error=>{
                     console.log(error.response)
@@ -93,7 +104,8 @@ import axios from 'axios';
                     }
                     axios.post('/api/orderproducts/', data, header)
                         .then(res=>{
-                            console.log('product!', res)
+                            this.isComplete = true;
+                            this.cleanCookie();
                         }).catch(error=>{
                             console.log(error.response)
                     })
