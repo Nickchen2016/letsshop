@@ -16,20 +16,22 @@
                 <div>{{ item.size }}</div>
                 <div>${{ item.price * item.quantity }}</div>
             </div>
-            <button v-if='customer.length>0'>Process to Payment</button>
+            <button v-if='customer.length>0' v-on:click.prevent='payment()'>Process to Payment</button>
             <button v-else v-on:click='redirect()'>Login First</button>
     </div>
 </template>
 
 
 <script>
+import axios from 'axios';
     export default {
         name: "OrderView",
         delimiters: ['[[', ']]'],
         data(){
             return {
                 arr: [],
-                customer: document.getElementById('drop_menu').getAttribute('data')
+                customer: document.getElementById('drop_menu').getAttribute('data'),
+                csrftoken: ''
             }
         },
         methods: {
@@ -37,7 +39,9 @@
                 let cookies = document.cookie.split('; ');
                 for(let i=0;i<cookies.length;i++){
                     if(cookies[i].split('=')[0].includes('Lets_shop')){
-                        this.arr.push(JSON.parse(cookies[i].split('=')[1]))
+                        this.arr.push(JSON.parse(cookies[i].split('=')[1]));
+                    }else if(cookies[i].split('=')[0]==='csrftoken'){
+                        this.csrftoken = cookies[i].split('=')[1]
                     }
                 }
             },
@@ -66,6 +70,34 @@
             },
             redirect(){
                 window.location.href="http://127.0.0.1:8000/accounts/login/"
+            },
+            payment(){
+                let query = {'user': Number(this.customer)};
+                let header = {headers: {"Content-type": "application/json",'X-CSRFToken': this.csrftoken}}
+                axios.post('/api/orders/',query, header)
+                .then(res=>{
+                    console.log('data!', res.data.id)
+                    this.saveProduct(header,res.data.id);
+                }).catch(error=>{
+                    console.log(error.response)
+                })
+            },
+            saveProduct(header,order_id){
+                for(let r=0;r<this.arr.length;r++){
+                    let data = {
+                            'order': Number(order_id),
+                            'product': Number(this.arr[r].product_id),
+                            'size': this.arr[r].size,
+                            'quantity': Number(this.arr[r].quantity),
+                            'subtotal': Number(this.arr[r].quantity)*Number(this.arr[r].price)
+                    }
+                    axios.post('/api/orderproducts/', data, header)
+                        .then(res=>{
+                            console.log('product!', res)
+                        }).catch(error=>{
+                            console.log(error.response)
+                    })
+                }
             }
         },
         beforeMount(){
