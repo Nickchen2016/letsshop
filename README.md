@@ -16,3 +16,5 @@ Vue.js------> npm run watch
 
 ## View in Browser
 Go to ------> localhost:8000
+
+## DB Schema Design
