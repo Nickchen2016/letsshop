@@ -18,3 +18,4 @@ Vue.js------> npm run watch
 Go to ------> localhost:8000
 
 ## DB Schema Design
+![schema](/assets/schema.png)
