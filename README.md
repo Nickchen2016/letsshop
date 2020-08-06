@@ -14,3 +14,5 @@ Vue.js part------> npm i
 Django------> python3 manage.py runserver</br>
 Vue.js------> npm run watch
 
+## View in Browser
+Go to ------> localhost:8000
